@@ -18,7 +18,7 @@ def capture_screenshot(region=None):
     return cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
 
 
-def find_template_multi_scale(template_path, confidence=0.7, region=None, min_scale=0.2, max_scale=1.0):
+def find_template_multi_scale(template_path, confidence=0.8, region=None, min_scale=0.7, max_scale=1.3):
     """
     Trouve un modèle à différentes échelles dans une capture d'écran.
     Retourne la position et la taille si trouvé, None sinon.
@@ -34,8 +34,8 @@ def find_template_multi_scale(template_path, confidence=0.7, region=None, min_sc
     screenshot_height, screenshot_width = screenshot.shape[:2]
     
     # Convertir en niveaux de gris pour le template matching
-    gray_screenshot = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
-    gray_template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+    # gray_screenshot = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
+    # gray_template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
     
     # Définir la plage d'échelles à tester
     num_scales = int((max_scale - min_scale) / 0.1) + 1
@@ -52,8 +52,8 @@ def find_template_multi_scale(template_path, confidence=0.7, region=None, min_sc
         if scale_width > screenshot_width or scale_height > screenshot_height:
             continue
         
-        resized_template = cv2.resize(gray_template, (scale_width, scale_height), interpolation=cv2.INTER_AREA)
-        result = cv2.matchTemplate(gray_screenshot, resized_template, cv2.TM_CCOEFF_NORMED)
+        resized_template = cv2.resize(template, (scale_width, scale_height), interpolation=cv2.INTER_AREA)
+        result = cv2.matchTemplate(screenshot, resized_template, cv2.TM_CCOEFF_NORMED)
         
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
         
