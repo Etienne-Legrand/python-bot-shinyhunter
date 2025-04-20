@@ -5,7 +5,9 @@ from src.config import setup_configuration
 from src.pokemon_hunter import hunt_shiny_pokemon
 
 def main():
-    init()  # Initialiser colorama
+    # Initialiser colorama
+    init()
+    
     print_title()
     
     advance_key, reset_key, game_region = setup_configuration()
