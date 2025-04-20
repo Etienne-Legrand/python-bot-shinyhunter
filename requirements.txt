@@ -1,7 +1,11 @@
-# For pyautogui
+# For image processing
 pyautogui==0.9.54
 Pillow==11.2.1
 opencv-python==4.11.0.86
 
+# For input
 keyboard==0.13.5
+pydirectinput==1.0.0
+
+# For command line interface
 colorama==0.4.6

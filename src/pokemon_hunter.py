@@ -1,5 +1,5 @@
 import time
-import keyboard
+import pydirectinput  # Ajouter cette importation
 from colorama import Fore, Style
 from src.ui import print_shiny_found
 from src.image_processing import check_pokemon_type
@@ -20,7 +20,7 @@ def hunt_shiny_pokemon(advance_key, reset_key, game_region):
         pokemon_found = False
         while not pokemon_found:
             time.sleep(0.5)
-            keyboard.press_and_release(advance_key)
+            pydirectinput.press(advance_key)
 
             pokemon_type, location = check_pokemon_type(shiny_pokemon_img, normal_pokemon_img, game_region)
             if pokemon_type:
@@ -32,5 +32,5 @@ def hunt_shiny_pokemon(advance_key, reset_key, game_region):
             break
         elif pokemon_type == "normal":
             print(f"{Fore.RED}Pokémon normal trouvé. Réinitialisation...{Style.RESET_ALL}")
-            keyboard.press_and_release(reset_key)
+            pydirectinput.press(reset_key)
             time.sleep(3)  # Attendre que le jeu se réinitialise
