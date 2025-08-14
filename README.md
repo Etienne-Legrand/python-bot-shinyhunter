@@ -11,6 +11,8 @@
 
 Bot automatisé développé en Python qui permet de détecter des Pokémon shiny dans vos jeux Pokémon en émulation sur PC.
 
+https://github.com/user-attachments/assets/ed2e7048-7908-46aa-a374-33fb57c48729
+
 ## Fonctionnalités
 
 - Détecter la présence d'un Pokémon à l'écran.
@@ -68,3 +70,4 @@ Bot automatisé développé en Python qui permet de détecter des Pokémon shiny
 ![shiny-pokemon](src/images/shiny_pokemon.png)
 
 _"Attrapez-les tous !"_
+
