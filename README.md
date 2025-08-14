@@ -1,7 +1,7 @@
-# ⚡ SHINY HUNTER BOT ⚡
+# Python - SHINY HUNTER BOT
 
 ```
-   ███████╗██╗  ██╗██╗███╗   ██╗██╗   ██╗    ██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ 
+   ███████╗██╗  ██╗██╗███╗   ██╗██╗   ██╗    ██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗
    ██╔════╝██║  ██║██║████╗  ██║╚██╗ ██╔╝    ██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗
    ███████╗███████║██║██╔██╗ ██║ ╚████╔╝     ███████║██║   ██║██╔██╗ ██║   ██║   █████╗  ██████╔╝
    ╚════██║██╔══██║██║██║╚██╗██║  ╚██╔╝      ██╔══██║██║   ██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗
@@ -9,50 +9,51 @@
    ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝   ╚═╝       ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
 ```
 
-## 🔥 BOT v1.0 - Chasse aux Pokémon Shiny 🔥
+Bot automatisé développé en Python qui permet de détecter des Pokémon shiny dans vos jeux Pokémon en émulation sur PC.
 
-_✨ BY Etienne ✨_
+## Fonctionnalités
 
----
+- Détecter la présence d'un Pokémon à l'écran.
+- Distinguer un Pokémon normal d'un Pokémon shiny.
+- Automatiser les séquences d'appui sur les touches pour continuer et reset la sauvegarde.
 
-### 🎮 Présentation du Bot
+## Prérequis
 
-Le **Shiny Hunter Bot** est un outil automatisé développé en Python qui permet de détecter des  Pokémon shiny dans vos jeux Pokémon en émulation. 
+1. Python 3+
 
-Le bot est capable de :
-- 👁️ Détecter la présence d'un Pokémon à l'écran
-- 🌈 Distinguer un Pokémon normal d'un Pokémon shiny
-- ⌨️ Automatiser les séquences d'appui sur les touches pour continuer et reset
+## Installation
 
-### ⚙️ Installation
-
-1. Assurez-vous d'avoir Python 3+ installé sur votre système
-2. Créez et activez un environnement virtuel (recommandé) :
+1. Clonez ce dépôt sur votre machine locale.
+2. Déplacez-vous dans le répertoire du projet
+3. Créez et activez un environnement virtuel (recommandé) :
 
    **Sous Windows :**
+
    ```
-   python -m venv venv
+   python3 -m venv venv
    venv\Scripts\activate
    ```
 
    **Sous macOS/Linux :**
+
    ```
    python3 -m venv venv
    source venv/bin/activate
    ```
 
-3. Installez les dépendances nécessaires :
+4. Installez les dépendances nécessaires :
+
    ```
    pip install -r requirements.txt
    ```
 
-4. Placez vos images de référence dans le dossier `src/images/` :
+5. Placez vos images de référence dans le dossier `src/images/` :
    - `pokemon-normal.png` - Image du Pokémon normal
    - `pokemon-shiny.png` - Image du Pokémon shiny
 
-### ⚙️ Utilisation
+## Utilisation
 
-1. Lancez votre émulateur et positionnez-vous avant l'encounter du Pokémon
+1. Lancez votre émulateur et positionnez-vous avant la rencontre du Pokémon
 2. Démarrez le bot avec la commande `python main.py`
 3. Configurez les touches:
    - Touche pour avancer dans les cinématiques
@@ -66,4 +67,4 @@ Le bot est capable de :
 
 ![shiny-pokemon](src/images/shiny_pokemon.png)
 
-_"Attrapez-les tous, surtout les brillants!"_
+_"Attrapez-les tous !"_
