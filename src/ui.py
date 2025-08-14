@@ -22,12 +22,12 @@ def print_title():
     ╚═══════════════════════════════════════════════════════════╝
     """
     print(f"{Fore.CYAN}{title}{Style.RESET_ALL}")
-    print(f"{Fore.YELLOW}{Style.BRIGHT}Bienvenue dans le Bot Chasseur de Pokémon Shiny!{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}{Style.BRIGHT}Bienvenue dans le Bot Chasseur de Pokémon Shiny !{Style.RESET_ALL}")
     print(f"{Fore.RED}{Style.BRIGHT}(Utilisez CTRL+C à tout moment pour quitter){Style.RESET_ALL}\n")
 
 def print_shiny_found(attempts):
     """Affiche un message stylisé quand un Pokémon shiny est trouvé."""
-    shiny_message = f"""
+    shiny_message = """
     ╔═══════════════════════════════════════════════════════════╗
     ║                                                           ║
     ║   ███████╗██╗  ██╗██╗███╗   ██╗██╗   ██╗                  ║
@@ -47,5 +47,5 @@ def print_shiny_found(attempts):
     ╚═══════════════════════════════════════════════════════════╝
     """
     print(f"{Fore.MAGENTA}{shiny_message}{Style.RESET_ALL}")
-    print(f"{Fore.GREEN}{Style.BRIGHT}UN POKÉMON SHINY A ÉTÉ TROUVÉ APRÈS {attempts} TENTATIVES!{Style.RESET_ALL}")
-    print(f"{Fore.YELLOW}{Style.BRIGHT}N'OUBLIEZ PAS DE LE CAPTURER!{Style.RESET_ALL}")
+    print(f"{Fore.GREEN}{Style.BRIGHT}UN POKÉMON SHINY A ÉTÉ TROUVÉ APRÈS {attempts} TENTATIVES !{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}{Style.BRIGHT}N'OUBLIEZ PAS DE LE CAPTURER !{Style.RESET_ALL}")
