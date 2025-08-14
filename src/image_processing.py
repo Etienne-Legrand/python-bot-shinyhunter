@@ -3,20 +3,25 @@ import numpy as np
 import pyautogui
 from colorama import Fore, Style
 
-def load_template(template_path):
-    """Charge l'image template et affiche une erreur si nécessaire."""
-    template = cv2.imread(template_path)
-    if template is None:
-        print(f"{Fore.RED}Erreur: Impossible de charger l'image {template_path}{Style.RESET_ALL}")
-    return template
-
-
-def capture_screenshot(region=None):
-    """Capture une zone de l'écran et la convertit au format BGR."""
-    screenshot = pyautogui.screenshot(region=region)
-    screenshot = np.array(screenshot)
-    return cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
-
+def check_pokemon_type(shiny_img, normal_img, game_region):
+    """Vérifie si un Pokémon shiny ou normal est visible à l'écran."""
+    try:
+        print(f"{Fore.YELLOW}Recherche de shiny...{Style.RESET_ALL}")
+        shiny_location = find_template_multi_scale(shiny_img, region=game_region)
+        
+        if shiny_location:
+            return "shiny", shiny_location
+        
+        print(f"{Fore.YELLOW}Recherche de normal...{Style.RESET_ALL}")
+        normal_location = find_template_multi_scale(normal_img, region=game_region)
+        
+        if normal_location:
+            return "normal", normal_location
+        
+        return None, None
+    except Exception as e:
+        print(f"{Fore.RED}Erreur lors de la détection d'image: {e}{Style.RESET_ALL}")
+        return None, None
 
 def find_template_multi_scale(template_path, confidence=0.8, region=None, min_scale=0.7, max_scale=1.3):
     """
@@ -70,23 +75,15 @@ def find_template_multi_scale(template_path, confidence=0.8, region=None, min_sc
     
     return best_match
 
+def capture_screenshot(region=None):
+    """Capture une zone de l'écran et la convertit au format BGR."""
+    screenshot = pyautogui.screenshot(region=region)
+    screenshot = np.array(screenshot)
+    return cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
 
-def check_pokemon_type(shiny_img, normal_img, game_region):
-    """Vérifie si un Pokémon shiny ou normal est visible à l'écran."""
-    try:
-        print(f"{Fore.YELLOW}Recherche de shiny...{Style.RESET_ALL}")
-        shiny_location = find_template_multi_scale(shiny_img, region=game_region)
-        
-        if shiny_location:
-            return "shiny", shiny_location
-        
-        print(f"{Fore.YELLOW}Recherche de normal...{Style.RESET_ALL}")
-        normal_location = find_template_multi_scale(normal_img, region=game_region)
-        
-        if normal_location:
-            return "normal", normal_location
-        
-        return None, None
-    except Exception as e:
-        print(f"{Fore.RED}Erreur lors de la détection d'image: {e}{Style.RESET_ALL}")
-        return None, None
+def load_template(template_path):
+    """Charge l'image template et affiche une erreur si nécessaire."""
+    template = cv2.imread(template_path)
+    if template is None:
+        print(f"{Fore.RED}Erreur: Impossible de charger l'image {template_path}{Style.RESET_ALL}")
+    return template

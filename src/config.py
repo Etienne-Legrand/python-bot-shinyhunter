@@ -3,6 +3,23 @@ import pyautogui
 import keyboard
 from colorama import Fore, Style
 
+def setup_configuration():
+    """Configure les paramètres du bot."""
+    print(f"{Fore.YELLOW}{Style.BRIGHT}Configuration des touches pour le bot{Style.RESET_ALL}")
+    advance_key = get_key_input("Entrez la touche pour avancer dans les cinématiques (par exemple: a, z, e, espace) : ")
+    reset_key = get_key_input("Entrez la touche pour réinitialiser la partie si le Pokémon n'est pas shiny : ")
+    
+    game_region = None
+    if get_key_input(f"\n{Fore.CYAN}{Style.BRIGHT}Voulez-vous configurer une région spécifique pour la recherche ? (o/n){Style.RESET_ALL} ") == 'o':
+        print(f"{Fore.YELLOW}Configuration de la région de recherche du bot :{Style.RESET_ALL}")
+        game_region = define_search_region()
+    
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}Préparation pour la capture d'écran{Style.RESET_ALL}")
+    print("Cliquez sur l'émulateur du jeu pour commencer (vous avez 5 secondes pour cliquer)...")
+    time.sleep(5)
+    
+    return advance_key, reset_key, game_region
+
 def get_key_input(prompt):
     """Fonction pour obtenir une entrée de touche de l'utilisateur valide."""
     while True:
@@ -34,21 +51,3 @@ def define_search_region():
     height = abs(pos2.y - pos1.y)
     
     return (x, y, width, height)
-
-
-def setup_configuration():
-    """Configure les paramètres du bot."""
-    print(f"{Fore.YELLOW}{Style.BRIGHT}Configuration des touches pour le bot{Style.RESET_ALL}")
-    advance_key = get_key_input("Entrez la touche pour avancer dans les cinématiques (par exemple: a, z, e, space): ")
-    reset_key = get_key_input("Entrez la touche pour réinitialiser la partie si le Pokémon n'est pas shiny: ")
-    
-    game_region = None
-    if get_key_input(f"\n{Fore.CYAN}{Style.BRIGHT}Voulez-vous configurer une région spécifique pour la recherche? (o/n){Style.RESET_ALL} ") == 'o':
-        print(f"{Fore.YELLOW}Configurez la région pour le jeu Pokémon (pressez Entrée pour commencer):{Style.RESET_ALL}")
-        game_region = define_search_region()
-    
-    print(f"\n{Fore.CYAN}{Style.BRIGHT}Préparation pour la capture d'écran{Style.RESET_ALL}")
-    print("Cliquez sur l'émulateur du jeu pour commencer (vous avez 5 secondes pour cliquer)...")
-    time.sleep(5)
-    
-    return advance_key, reset_key, game_region
