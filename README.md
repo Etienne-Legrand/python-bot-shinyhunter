@@ -30,14 +30,14 @@ Bot automatisé développé en Python qui permet de détecter des Pokémon shiny
    **Sous Windows :**
 
    ```
-   python3 -m venv venv
+   python -m venv venv
    venv\Scripts\activate
    ```
 
    **Sous macOS/Linux :**
 
    ```
-   python3 -m venv venv
+   python -m venv venv
    source venv/bin/activate
    ```
 
